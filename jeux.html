@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mes Jeux</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #007bff, #ff6600, #ffffff);
+      margin: 0;
+      padding: 0;
+      color: #222;
+    }
+    header {
+      background: #007bff;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+    header h1 {
+      margin: 0;
+    }
+    /* Icône retour */
+    .back-btn {
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      background: #ff6600;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    section.games {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 30px;
+    }
+    .game-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 350px;
+      text-align: center;
+      padding: 20px;
+      transition: transform 0.2s;
+    }
+    .game-card:hover {
+      transform: scale(1.05);
+    }
+    .game-card h3 {
+      margin-bottom: 10px;
+      color: #007bff;
+    }
+    .game-card video {
+      width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+      border: 2px solid #ff6600;
+    }
+    .game-card button {
+      margin-top: 15px;
+      padding: 10px 15px;
+      background: #ff6600;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .game-card button:hover {
+      background: #cc5200;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <button class="back-btn" onclick="goBack()">⟵</button>
+  <h1>🎮 Mes Jeux</h1>
+  <p>Découvrez mes créations et entrez dans l’univers de chaque jeu</p>
+</header>
+
+<section class="games">
+  <!-- Jeu 1 -->
+  <div class="game-card">
+    <h3>Trick Brain</h3>
+    <video autoplay muted playsinline loop onclick="openGame('https://premum.vercel.app')">
+      <source src="assets/video/jeu.mp4" type="video/mp4">
+      Votre navigateur ne supporte pas la vidéo.
+    </video>
+    <button onclick="requestAd('Trick Brain')">📢 Demander une publicité</button>
+  </div>
+
+  <!-- Jeu 2 -->
+  <div class="game-card">
+    <h3>Memory Challenge</h3>
+    <video autoplay muted playsinline loop onclick="openGame('https://tonsite.com/memory')">
+      <source src="" type="video/mp4">
+    </video>
+    <button onclick="requestAd('Memory Challenge')">📢 Demander une publicité</button>
+  </div>
+
+  <!-- Tu peux ajouter autant de jeux que tu veux -->
+</section>
+
+<script>
+  // Retour vers la page index.html
+  function goBack(){
+    window.location.href = "index.html";
+  }
+
+  // Redirection vers le jeu quand on clique sur la vidéo
+  function openGame(url){
+    window.location.href = url;
+  }
+
+  // Demande de publicité via WhatsApp
+  function requestAd(gameName){
+    let message = "Bonjour, je souhaite faire une publicité pour le jeu: " + gameName;
+    let whatsappUrl = "https://wa.me/22891962246?text=" + encodeURIComponent(message);
+    window.open(whatsappUrl, "_blank");
+  }
+</script>
+
+</body>
+</html>
